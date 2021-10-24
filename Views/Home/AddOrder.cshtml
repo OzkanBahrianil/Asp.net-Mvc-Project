@@ -1,0 +1,99 @@
+﻿@model EntityLayer.concrete.VievModel
+
+
+@{
+    ViewBag.Title = "AddOrder";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<br />
+<link rel="stylesheet" type="text/css" href="~/css/StyleSheet4.css" />
+<h1 style=" text-align: center;">Order Preview</h1>
+<br />
+
+@foreach (var item in Model.CustomerS)
+{
+    <table>
+        <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>Email</th>
+                <th>Updated Date</th>
+                <th>Created Date</th>
+                <th>Update</th>
+
+            </tr>
+        </thead>
+        <tbody class="Test1">
+            <tr>
+                <td> @item.Name</td>
+                <td> @item.Email</td>
+                <td> @item.UpdatedAt</td>
+                <td> @item.CreatedAt</td>
+                <td> <a href="~/Home/Editforcustomers/@item.CustomerId" class="btn btn-warning">Update</a></td>
+            </tr>
+        </tbody>
+    </table>
+}
+@foreach (var item in Model.AddressS)
+{
+    <table>
+        <thead>
+            <tr>
+
+                <th>Address</th>
+                <th>City</th>
+                <th>CityCode</th>
+                <th>Country</th>
+                <th>Update</th>
+
+            </tr>
+        </thead>
+        <tbody class="Test2">
+            <tr>
+                <td> @item.AddressLine</td>
+                <td> @item.City</td>
+                <td> @item.CityCode</td>
+                <td> @item.Country</td>
+                <td> <a href="~/Home/EditforAddress/@item.AddressId" class="btn btn-warning">Update</a></td>
+            </tr>
+        </tbody>
+    </table>
+}
+
+@foreach (var item in Model.ProductS)
+{
+    <table>
+        <thead>
+            <tr>
+
+                <th>Selected Web Designer</th>
+
+            </tr>
+        </thead>
+        <tbody class="Test3">
+            <tr>
+                <td> @item.Name</td>
+            </tr>
+        </tbody>
+    </table>
+}
+
+
+<h2 style=" text-align: center;">Give Order</h2>
+<form class="form-group" method="post">
+    <input type="text" placeholder="Quantity For Job" name="Quantity" class="form-control" onkeypress="return isNumberKey(event)" required />
+    <br />
+    <input type="text" placeholder="Proposed Money $" name="Price" class="form-control" onkeypress="return isNumberKey(event)" required />
+    <br />
+
+    <button class="btn btn-primary">Give Order</button>
+</form>
+<script type="text/javascript">
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+</script>

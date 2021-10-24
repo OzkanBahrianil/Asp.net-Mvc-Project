@@ -1,0 +1,52 @@
+﻿@model EntityLayer.concrete.VievModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/css/StyleSheet3.css" />
+<h2 style="text-align:center;">My Orders</h2>
+
+
+@foreach (var item in Model.Orders)
+{
+    <table>
+        <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>City Code</th>
+                <th>Country</th>
+                <th>Requested Person</th>
+                <th>Quantity For Job</th>
+                <th>Proposed Money $</th>
+                <th>Created Date</th>
+                <th>Updated Date</th>
+                <th>Status</th>
+                <th>Update</th>
+                <th>Delete</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> @item.Customer.Name</td>
+                <td> @item.Customer.Email</td>
+                <td> @item.Address.AddressLine</td>
+                <td> @item.Address.City</td>
+                <td> @item.Address.CityCode</td>
+                <td> @item.Address.Country</td>
+                <td> @item.Product.Name</td>
+                <td> @item.Quantity</td>
+                <td> @item.Price</td>
+                <td> @item.CreatedAt</td>
+                <td> @item.UpdatedAt</td>
+                <td> @item.Status</td>
+                <td> <a href="~/Order/DeleteOrder/@item.OrderId" class="btn btn-outline-danger">Delete</a> </td>
+                <td>  <a href="~/Order/EditOrder/@item.OrderId" class="btn btn-outline-warning">Update</a> </td>
+            </tr>
+        </tbody>
+    </table>
+}

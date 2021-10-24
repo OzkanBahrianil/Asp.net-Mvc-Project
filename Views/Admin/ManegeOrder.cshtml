@@ -1,0 +1,106 @@
+﻿@model EntityLayer.concrete.VievModel
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Manege Order";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<br />
+<link rel="stylesheet" type="text/css" href="~/css/StyleSheet2.css" />
+<h2 style="text-align:center;">All Orders</h2>
+<table>
+    <thead>
+        <tr>
+
+            <th>
+                Name
+                @using (Html.BeginForm("ManegeOrder", "Admin", FormMethod.Post))
+                {
+                    <input style="display:none;" type="text" placeholder="Name" name="Status" class="form-control" value="1" />
+                    <button class="bottom fas fa-angle-down"></button>
+                }
+            </th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>City Code</th>
+            <th>Country</th>
+            <th>
+                Requested Person
+                @using (Html.BeginForm("ManegeOrder", "Admin", FormMethod.Post))
+                {
+                    <input style="display:none;" type="text" placeholder="Name" name="Status" class="form-control" value="2" />
+                    <button class="bottom fas fa-angle-down"></button>
+                }
+            </th>
+            <th>Quantity For Job</th>
+            <th>
+                Money offer $
+                @using (Html.BeginForm("ManegeOrder", "Admin", FormMethod.Post))
+                {
+                    <input style="display:none;" type="text" placeholder="Name" name="Status" class="form-control" value="3" />
+                    <button class="bottom fas fa-angle-down"></button>
+                }
+            </th>
+            <th>
+                Created Date
+                @using (Html.BeginForm("ManegeOrder", "Admin", FormMethod.Post))
+                {
+                    <input style="display:none;" type="text" placeholder="Name" name="Status" class="form-control" value="4" />
+                    <button class="bottom fas fa-angle-down"></button>
+                }
+            </th>
+            <th>
+                Updated Date
+                @using (Html.BeginForm("ManegeOrder", "Admin", FormMethod.Post))
+                {
+                    <input style="display:none;" type="text" placeholder="Name" name="Status" class="form-control" value="5" />
+                    <button class="bottom fas fa-angle-down"></button>
+                }
+            </th>
+            <th>
+                Status
+                @using (Html.BeginForm("ManegeOrder", "Admin", FormMethod.Post))
+                {
+                    <input style="display:none;" type="text" placeholder="Name" name="Status" class="form-control" value="6" />
+                    <button class="bottom fas fa-angle-down"></button>
+                }
+            </th>
+            <th>Change Status</th>
+
+        </tr>
+
+    </thead>
+
+    @foreach (var item in Model.Orders)
+    {
+        <tbody>
+            <tr>
+                <td> @item.Customer.Name</td>
+                <td> @item.Customer.Email</td>
+                <td> @item.Address.AddressLine</td>
+                <td> @item.Address.City</td>
+                <td> @item.Address.CityCode</td>
+                <td> @item.Address.Country</td>
+                <td> @item.Product.Name</td>
+                <td> @item.Quantity</td>
+                <td> @item.Price</td>
+                <td> @item.CreatedAt</td>
+                <td> @item.UpdatedAt</td>
+                <td> @item.Status</td>
+                <td>
+                    <a href="~/Admin/ManegeOrderStatusApprove/@item.OrderId" class="btn btn-outline-primary">APPROVE</a>
+                    <a href="~/Admin/ManegeOrderStatusrejected/@item.OrderId" class="btn btn-outline-primary">REJECT</a>
+                    <a href="~/Admin/ManegeOrderStatusrequest/@item.OrderId" class="btn btn-outline-primary">REQUEST MONEY CHANGE</a>
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>
+<br />
+
+<h3>@Html.PagedListPager((IPagedList)Model.Orders, page => Url.Action("ManegeOrder", "Admin", new { page }))</h3>
+<br />
+<br />
+
+

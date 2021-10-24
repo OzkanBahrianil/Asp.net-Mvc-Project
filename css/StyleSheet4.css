@@ -1,0 +1,102 @@
+﻿
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+}
+
+td, th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+        td:before {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+
+   .Test1 td:nth-of-type(1):before {
+        content: "Name";
+    }
+
+    .Test1 td:nth-of-type(2):before {
+        content: "Email";
+    }
+
+    .Test1 td:nth-of-type(3):before {
+        content: "Updated Date";
+    }
+
+    .Test1 td:nth-of-type(4):before {
+        content: "Created Date";
+    }
+
+    .Test1 td:nth-of-type(5):before {
+        content: "Update";
+    }
+
+    .Test2 td:nth-of-type(1):before {
+        content: "Address";
+    }
+
+    .Test2 td:nth-of-type(2):before {
+        content: "City";
+    }
+
+    .Test2 td:nth-of-type(3):before {
+        content: "City Code";
+    }
+
+    .Test2 td:nth-of-type(4):before {
+        content: "Country";
+    }
+
+    .Test2 td:nth-of-type(5):before {
+        content: "Update";
+    }
+
+    .Test3 td:nth-of-type(1):before {
+        content: "Selected Product";
+    }
+
+
+}

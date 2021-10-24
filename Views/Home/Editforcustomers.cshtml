@@ -1,0 +1,46 @@
+﻿@model EntityLayer.concrete.Customer
+@{
+    ViewBag.Title = "Editforcustomers";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<br />
+<h2 style="text-align:center">Customer Information Update Page</h2>
+@using (Html.BeginForm("Editforcustomers", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        <a style="display:none">
+            @Html.Label("CustomerId")
+            @Html.TextBoxFor(x => x.CustomerId, new { @class = "form-control" })
+        </a>
+        <br />
+        @Html.Label("Email")
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+
+        @Html.ValidationMessageFor(x => x.Email)
+        <br />
+        @Html.Label("Name")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+
+        @Html.ValidationMessageFor(x => x.Name)
+        <br />
+        <a style="display:none">
+            @Html.Label("CreatedAt")
+            @Html.TextBoxFor(x => x.CreatedAt, new { @class = "form-control" })
+            <br />
+        </a>
+        <a style="display:none">
+            @Html.Label("AddresId")
+            @Html.TextBoxFor(x => x.AddressId, new { @class = "form-control" })
+            <br />
+        </a>
+        <a style="display:none">
+            @Html.Label("UpdateAt")
+            @Html.TextBoxFor(x => x.UpdatedAt, new { @class = "form-control" })
+            <br />
+        </a>
+        <button class="btn btn-success">Update</button>
+
+    </div>
+
+}

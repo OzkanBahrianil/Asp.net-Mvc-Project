@@ -1,0 +1,38 @@
+﻿@model EntityLayer.concrete.Order
+@{
+    ViewBag.Title = "EditOrder";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<br />
+<h2 style="text-align:center;">Order Information Update Page</h2>
+@using (Html.BeginForm("EditOrder", "Order", FormMethod.Post))
+{
+    <div class="form-group">
+        <a style="display:none;">
+            @Html.Label("Id")
+            @Html.TextBoxFor(x => x.OrderId, new { @class = "form-control" })
+            @Html.Label("Id")
+            @Html.TextBoxFor(x => x.AddressId, new { @class = "form-control" })
+            @Html.Label("Id")
+            @Html.TextBoxFor(x => x.CreatedAt, new { @class = "form-control" })
+            @Html.Label("Id")
+            @Html.TextBoxFor(x => x.CustomerId, new { @class = "form-control" })
+            @Html.Label("Id")
+            @Html.TextBoxFor(x => x.Id, new { @class = "form-control" })
+        </a>
+        <br />
+        @Html.Label("Quantity For Job")
+        @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Quantity)
+        <br />
+        @Html.Label("Proposed Money $")
+        @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Price)
+        <br />
+        <button class="btn btn-success">Update</button>
+
+    </div>
+
+}
+

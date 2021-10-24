@@ -1,0 +1,41 @@
+﻿@model EntityLayer.concrete.Address
+@{
+    ViewBag.Title = "EditforAddress";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<br />
+<h2 style="text-align:center;">
+    Address Information Update Page
+</h2>
+@using (Html.BeginForm("EditforAddress", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        <a style="display:none">
+            @Html.Label("CustomerId")
+            @Html.TextBoxFor(x => x.AddressId, new { @class = "form-control" })
+        </a>
+        <br />
+        @Html.Label("Address")
+        @Html.TextBoxFor(x => x.AddressLine, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.AddressLine)
+        <br />
+
+        @Html.Label("City")
+        @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.City)
+        <br />
+        @Html.Label("City Code")
+        @Html.TextBoxFor(x => x.CityCode, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CityCode)
+        <br />
+        @Html.Label("Country")
+        @Html.TextBoxFor(x => x.Country, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Country)
+        <br />
+
+        <button class="btn btn-success">Update</button>
+
+    </div>
+
+}

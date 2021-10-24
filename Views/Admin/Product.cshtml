@@ -1,0 +1,45 @@
+﻿@model EntityLayer.concrete.VievModel
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<h1 style="text-align:center">All Web Designer</h1>
+<link rel="stylesheet" type="text/css" href="~/css/StyleSheet1.css" />
+<br />
+<table>
+    <thead>
+        <tr>
+
+            <th>Id</th>
+            <th>ImageUrl</th>
+            <th>Name</th>
+            <th>Delete</th>
+            <th>Update</th>
+
+        </tr>
+    </thead>
+    @foreach (var item in Model.ProductS)
+    {
+        <tbody>
+            <tr>
+                <td> @item.Id</td>
+                <td> @item.ImageUrl</td>
+                <td> @item.Name</td>
+
+                <td> <a href="~/Admin/DeleteProduct/@item.Id" class="btn btn-danger">Delete</a></td>
+                <td> <a href="~/Admin/EditProduct/@item.Id" class="btn btn-warning">Update</a></td>
+
+            </tr>
+        </tbody>
+    }
+
+</table>
+<br />
+<h3>@Html.PagedListPager((IPagedList)Model.ProductS, page => Url.Action("Product", "Admin", new { page }))</h3>
+<br />
+
+<br />
+<a href="/Admin/addProduct" class="btn btn-info">Add Web Designer</a>
+

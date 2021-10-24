@@ -1,0 +1,86 @@
+﻿@model EntityLayer.concrete.VievModel
+@using PagedList
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<br />
+<link rel="stylesheet" type="text/css" href="~/css/StyleSheet.css" />
+<h2 style="text-align:center;">All Customers</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                CustomerId
+                @using (Html.BeginForm("Index", "Admin", FormMethod.Post))
+                {
+                    <input style="display:none;" type="text" placeholder="Name" name="Name" class="form-control" value="0" />
+                    <button class="bottom fas fa-angle-down"></button>
+                }
+            </th>
+            <th>
+                Name
+                @using (Html.BeginForm("Index", "Admin", FormMethod.Post))
+                {
+                    <input style="display:none;" type="text" placeholder="Name" name="Name" class="form-control" value="1" />
+                    <button class="bottom fas fa-angle-down"></button>
+                }
+            </th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>City Code</th>
+            <th>Country</th>
+            <th>
+                UpdatedAt
+                @using (Html.BeginForm("Index", "Admin", FormMethod.Post))
+                {
+                    <input style="display:none;" type="text" placeholder="Name" name="Name" class="form-control" value="2" />
+                    <button class="bottom fas fa-angle-down"></button>
+                }
+            </th>
+            <th>
+                CreatedAt
+                @using (Html.BeginForm("Index", "Admin", FormMethod.Post))
+                {
+                    <input style="display:none;" type="text" placeholder="Name" name="Name" class="form-control" value="3" />
+                    <button class="bottom fas fa-angle-down"></button>
+                }
+            </th>
+            <th>Delete Customer</th>
+            <th>Update Customer</th>
+            <th>Address Update</th>
+
+        </tr>
+    </thead>
+    @foreach (var item in Model.CustomerS)
+    {
+        <tbody>
+            <tr>
+                <td> @item.CustomerId</td>
+                <td> @item.Name</td>
+                <td> @item.Email</td>
+                <td> @item.Address.AddressLine</td>
+                <td> @item.Address.City</td>
+                <td> @item.Address.CityCode</td>
+                <td> @item.Address.Country</td>
+                <td> @item.UpdatedAt</td>
+                <td> @item.CreatedAt</td>
+                <td> <a href="~/Admin/DeleteCustomer/@item.CustomerId" class="btn btn-danger">Delete</a></td>
+                <td> <a href="~/Admin/EditCustomer/@item.CustomerId" class="btn btn-warning">Update</a></td>
+                <td> <a href="~/Admin/EditAddress/@item.AddressId" class="btn btn-warning">Address Update</a></td>
+
+            </tr>
+        </tbody>
+    }
+</table>
+<br />
+<h3>@Html.PagedListPager((IPagedList)Model.CustomerS, page => Url.Action("Index", "Admin", new { page }))</h3>
+<br />
+<br />
+
+
+

@@ -1,0 +1,18 @@
+﻿@model EntityLayer.concrete.Product
+@{
+    ViewBag.Title = "addProduct";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+
+
+<br />
+<h2 style="text-align:center;">Web Designer Add Form</h2>
+<form class="form-group" method="post">
+    <input type="text" placeholder="Name" name="Name" class="form-control" required />
+    <br />
+    <input type="text" placeholder="ImageUrl" name="ImageUrl" class="form-control" required />
+    <br />
+    <button class="btn btn-primary">Add</button>
+
+</form>
