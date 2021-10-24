@@ -8,9 +8,9 @@ This is an ordering application that is built for hiring freelancers and makes i
 + My Order page<br/>
 + Order page
 <h2>The following tools were used to create this project</h2>
-+ Multi layer<br/>
++ Multi-layer<br/>
 + Entity Fremework<br/>
-+ Linq query codes used<br/>
++ Linq query codes<br/>
 + FluentValidation<br/>
 + Authorize<br/>
 + MsSql Database
